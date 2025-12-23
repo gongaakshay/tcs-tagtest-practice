@@ -1,113 +1,125 @@
-🧠 TCS TAGTEST DSA PRACTICE TRACKER
+# 🧠 **TCS TagTest DSA Practice Tracker**
 
-A 21-Day Structured DSA Practice Sheet designed specially for TCS NQT & TCS TagTest aspirants.
-Built with HTML + Tailwind CSS + JavaScript, this tracker helps you stay consistent and prepare effectively.
+A **21-Day Structured DSA Practice Sheet** designed specifically for **TCS NQT & TCS TagTest aspirants**.
+Built using **HTML, Tailwind CSS, and JavaScript**, this tracker helps you stay consistent, track your progress, and prepare effectively for service-based coding rounds.
 
-🚀 FEATURES
+---
 
-✅ 3-Week Structured Roadmap
+## 🚀 **Key Features**
 
-📚 Topic Wise Well-Chosen Problems
+* ✅ **3-Week Structured Roadmap** – Carefully curated 21-day preparation plan
+* 📚 **Topic-Wise Problems** – Focused on high-frequency interview patterns
+* 🔗 **Direct Practice Links** – LeetCode, GeeksforGeeks, and SPOJ
+* 🎯 **Visual Progress Tracking** – Live progress percentage + dynamic progress bars
+* 💾 **Auto-Save Functionality** – Progress saved in `localStorage` (won’t reset on refresh)
+* 📅 **Organized Weekly Tabs** – Week 1 → Week 3 navigation
+* ✨ **Modern UI** – Clean, responsive Tailwind interface with smooth animations
 
-🔗 Direct Problem Links (LeetCode / GFG / SPOJ)
+---
 
-🎯 Progress Percentage & Visual Progress Bar
+## 🗂️ **Roadmap Overview**
 
-💾 Auto Progress Save (Local Storage)
+### 📍 **Week 1 – Arrays & Two Pointers**
 
-📅 Week Tabs (Week 1 → Week 3)
+* Array Traversal Techniques
+* Frequency Counting & Hashing
+* Sliding Window Problems
+* 2D Matrix Manipulation
 
-✨ Smooth UI + Modern Animations
+---
 
-🎨 Clean & Beautiful Tailwind UI
+### 📍 **Week 2 – Sorting & Searching**
 
-🗂️ ROADMAP OVERVIEW
-📍 WEEK 1 — ARRAYS & TWO POINTERS
+* Standard Sorting Algorithms
+* Core Binary Search Logic
+* Binary Search Variations
+* “Binary Search on Answer” Problems
 
-Covers:
+---
 
-Array Traversal
+### 📍 **Week 3 – Strings**
 
-Frequency / Hashing
+* String Manipulation Basics
+* Pattern Matching
+* Sliding Window on Strings
+* Logical & Advanced String Problems
 
-Sliding Window
+---
 
-2D Matrix Problems
+## 🛠️ **Tech Stack**
 
-📍 WEEK 2 — SORTING & SEARCHING
+| Technology            | Purpose                              |
+| --------------------- | ------------------------------------ |
+| **HTML5**             | Structure & Layout                   |
+| **Tailwind CSS**      | Styling, Responsiveness & Animations |
+| **JavaScript (ES6+)** | Logic, DOM Control & LocalStorage    |
+| **FontAwesome**       | UI Icons                             |
 
-Covers:
+---
 
-Sorting Algorithms
+## 🖥️ **How to Use**
 
-Binary Search Core
+### ✔️ **Option 1: Run Locally**
 
-Binary Search Variations
+```bash
+# Clone the repository
+git clone https://github.com/your-username/tcs-dsa-tracker.git
 
-Binary Search on Answer Problems
+# Open folder
+cd tcs-dsa-tracker
 
-📍 WEEK 3 — STRINGS
+# Run
+Open index.html in your browser
+```
 
-Covers:
+Start practicing 🚀
 
-String Basics
+---
 
-Pattern Problems
+### 🌍 **Option 2: Host on GitHub Pages (Recommended)**
 
-Sliding Window on Strings
+You can make this tracker live for FREE:
 
-Logical & Advanced String Problems
+1️⃣ Go to **Repository Settings**
+2️⃣ Select **Pages**
+3️⃣ Under **Build and Deployment**
 
-🖥️ HOW TO USE
-✔️ RUN LOCALLY
-
-1️⃣ Download / Clone the repository
-2️⃣ Open index.html
-3️⃣ Start practicing 🚀
-
-🌍 OPTIONAL — HOST ON GITHUB PAGES
-
-1️⃣ Go to Repository → Settings
-2️⃣ Select Pages
-3️⃣ Set:
-
-Source → Deploy from Branch
+```
+Source → Deploy from branch
 Branch → main
-Folder → /root
+Folder → / (root)
+```
 
+4️⃣ Click **Save**
+5️⃣ Wait a few seconds → Your tracker is LIVE 🎉
 
-4️⃣ Save → Your DSA Tracker goes LIVE 🎉
+---
 
-💾 PROGRESS STORAGE
+## 💾 **Progress Storage Details**
 
-Your progress is automatically stored using:
+* Storage: Browser `localStorage`
+* Persistence: Progress remains saved even after refresh or restart
+* Reset: Click **Reset Progress** anytime to clear saved data
 
-localStorage
+---
 
+## ❤️ **Credits**
 
-So your solved questions remain saved even after refreshing.
-You can reset anytime using Reset Progress.
-
-🛠️ TECH STACK
-
-HTML
-
-Tailwind CSS
-
-JavaScript
-
-FontAwesome Icons
-
-❤️ CREATED BY
-
-GONGA AKSHAY
-
+Created with passion by **Gonga Akshay**
 Built for students preparing for:
 
-TCS TAGTEST
+* **TCS TagTest**
+* **TCS NQT**
+* **Service-Based Company Coding Rounds**
 
-TCS NQT
+---
 
-Service-Based Company Coding Rounds
+## ⭐ **Support**
 
-⭐ If you find this useful, don’t forget to STAR the repo!
+If you find this tool helpful:
+
+* Star ⭐ the repository
+* Share with friends 🚀
+* Keep Coding 👨‍💻
+
+---
