@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DSA Sheet for TCS Coding Tests | Gonga Akshay</title>
+    <meta name="description" content="Focused preparation for TCS NQT and similar service-based companies.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Outfit', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            400: '#60a5fa',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                            900: '#1e3a8a',
+                        },
+                        accent: {
+                            500: '#8b5cf6', // Violet
+                            600: '#7c3aed',
+                        }
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        },
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom UI Tweaks */
+        body { -webkit-font-smoothing: antialiased; }
+        
+        /* Smooth Accordion Transition */
+        .accordion-content {
+            transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease-in-out;
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+        }
+        .accordion-content.open {
+            max-height: 1000px; 
+            opacity: 1;
+        }
+
+        /* Custom Checkbox */
+        .custom-checkbox input:checked + div {
+            background-color: #2563eb;
+            border-color: #2563eb;
+            transform: scale(1.05);
+        }
+        .custom-checkbox input:checked + div i {
+            opacity: 1;
+        }
+        
+        /* Progress Bar Animation */
+        .progress-fill { transition: width 1.5s cubic-bezier(0.34, 1.56, 0.64, 1); }
+
+        /* Dot Pattern Background */
+        .bg-dot-pattern {
+            background-image: radial-gradient(#cbd5e1 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+        
+        /* Glass Effect */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 flex flex-col min-h-screen">
+
+    <nav class="bg-white/80 backdrop-blur-md border-b border-slate-200 sticky top-0 z-50">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="bg-gradient-to-br from-brand-500 to-accent-600 text-white w-9 h-9 rounded-xl flex items-center justify-center shadow-lg shadow-brand-500/20">
+                    <i class="fa-solid fa-code text-sm"></i>
+                </div>
+                <div>
+                    <h1 class="font-heading font-bold text-xl leading-none text-slate-900 tracking-tight">DSA Cracker</h1>
+                    <span class="text-[10px] font-bold tracking-widest text-brand-600 uppercase">TCS Prep Edition</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <header class="relative pt-12 pb-16 px-4 overflow-hidden">
+        <div class="absolute inset-0 bg-dot-pattern opacity-40 z-0"></div>
+        
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full max-w-6xl z-0 pointer-events-none">
+            <div class="absolute top-10 left-10 w-72 h-72 bg-brand-300 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-float"></div>
+            <div class="absolute top-10 right-10 w-72 h-72 bg-accent-300 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-float" style="animation-delay: 2s"></div>
+            <div class="absolute -bottom-10 left-1/3 w-72 h-72 bg-pink-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-float" style="animation-delay: 4s"></div>
+        </div>
+
+        <div class="max-w-5xl mx-auto relative z-10">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-10">
+                
+                <div class="text-center md:text-left max-w-xl animate-fade-in-up">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-50 border border-brand-100 text-brand-600 text-xs font-bold uppercase tracking-wide mb-4 shadow-sm">
+                        <span class="w-2 h-2 rounded-full bg-brand-500 animate-pulse"></span>
+                        TagTest Ready
+                    </div>
+                    
+                    <h2 class="text-4xl md:text-5xl font-heading font-extrabold text-slate-900 mb-4 leading-tight">
+                        Master the <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 to-accent-600 whitespace-nowrap">Coding Interview</span>
+                    </h2>
+                    
+                    <p class="text-slate-800 font-semibold text-lg mb-2">
+                        Practicing these problems can help you solve at least one of two problems in the TCS TagTest.
+                    </p>
+                    
+                    <p class="text-slate-600 text-lg md:text-xl leading-relaxed mb-6 font-light">
+                        A curated roadmap for TCS NQT & service-based companies. 
+                        Track your consistency, solve patterns, and get hired.
+                    </p>
+                    
+                    <div class="flex flex-wrap justify-center md:justify-start gap-3 text-sm font-medium text-slate-500">
+                        <span class="flex items-center gap-1.5"><i class="fa-regular fa-circle-check text-brand-500"></i> Optimized List</span>
+                        <span class="flex items-center gap-1.5"><i class="fa-regular fa-circle-check text-brand-500"></i> Topic Wise</span>
+                        <span class="flex items-center gap-1.5"><i class="fa-regular fa-circle-check text-brand-500"></i> Free Resource</span>
+                    </div>
+                </div>
+
+                <div class="w-full md:w-80 glass-card rounded-2xl p-6 shadow-xl shadow-slate-200/50 relative group animate-fade-in-up" style="animation-delay: 0.2s;">
+                    <div class="absolute -top-3 -right-3 bg-white text-yellow-500 p-2 rounded-lg shadow-md border border-slate-100 transform rotate-12 group-hover:rotate-6 transition-transform">
+                        <i class="fa-solid fa-trophy text-xl"></i>
+                    </div>
+
+                    <div class="mb-4">
+                        <p class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">Your Progress</p>
+                        <div class="flex items-end justify-between">
+                            <h3 class="text-4xl font-heading font-bold text-slate-800" id="overall-percentage">0%</h3>
+                            <p class="text-sm text-slate-500 mb-1.5 font-medium"><span id="solved-count" class="text-brand-600 font-bold">0</span> / <span id="total-count">0</span> Solved</p>
+                        </div>
+                    </div>
+                    
+                    <div class="w-full bg-slate-100/80 rounded-full h-3 mb-2 overflow-hidden shadow-inner border border-slate-200/50">
+                        <div id="overall-bar" class="progress-fill bg-gradient-to-r from-brand-500 to-accent-500 h-3 rounded-full relative" style="width: 0%">
+                            <div class="absolute inset-0 bg-white/20"></div>
+                        </div>
+                    </div>
+                    <p class="text-[11px] text-slate-400 text-center mt-2">Consistency is the key to cracking TCS.</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow max-w-5xl mx-auto px-4 w-full pb-12 -mt-4 relative z-20">
+        
+        <div class="flex justify-center mb-8 sticky top-20 z-40">
+            <div class="bg-white/90 backdrop-blur-sm p-1.5 rounded-xl shadow-lg shadow-slate-200/50 border border-slate-100 inline-flex ring-1 ring-slate-100">
+                <button onclick="renderWeek(1)" id="tab-1" class="px-6 py-2 rounded-lg text-sm font-semibold transition-all duration-200 text-white bg-brand-600 shadow-md">Week 1</button>
+                <button onclick="renderWeek(2)" id="tab-2" class="px-6 py-2 rounded-lg text-sm font-semibold transition-all duration-200 text-slate-500 hover:text-slate-900 hover:bg-slate-50">Week 2</button>
+                <button onclick="renderWeek(3)" id="tab-3" class="px-6 py-2 rounded-lg text-sm font-semibold transition-all duration-200 text-slate-500 hover:text-slate-900 hover:bg-slate-50">Week 3</button>
+            </div>
+        </div>
+
+        <div id="roadmap-container" class="space-y-4">
+            </div>
+
+    </main>
+
+    <footer class="bg-white border-t border-slate-200 py-8 mt-auto relative z-10">
+        <div class="max-w-5xl mx-auto px-4 text-center">
+            <p class="font-heading font-semibold text-slate-800 mb-1">
+                Created with <span class="text-red-500 animate-pulse">❤️</span> by GONGA AKSHAY
+            </p>
+            <p class="text-xs text-slate-400 mb-6">Built for the Community. Practice consistently.</p>
+            
+            <div class="flex justify-center items-center gap-6 mb-8">
+                <a href="https://github.com/gongaakshay" target="_blank" class="flex items-center gap-2 text-slate-500 hover:text-slate-900 transition-colors group">
+                    <i class="fa-brands fa-github text-xl group-hover:scale-110 transition-transform"></i>
+                    <span class="font-medium text-sm">Support on GitHub</span>
+                </a>
+            </div>
+            
+            <button onclick="resetProgress()" class="text-[10px] text-red-400 hover:text-red-600 font-bold uppercase tracking-widest border border-red-100 hover:border-red-300 px-3 py-1 rounded-full transition-colors bg-red-50 hover:bg-red-100">
+                Reset All Progress
+            </button>
+        </div>
+    </footer>
+
+    <script>
+        
+const roadmapData = {
+
+  /* ================= WEEK 1 : ARRAYS ================= */
+  1: {
+    title: "Arrays & Two Pointer Patterns",
+    days: [
+
+      {
+        day: 1,
+        topic: "Simple Traversal / Accumulation",
+        problems: [
+          { title: "Find the Average of Array Elements", link: "https://www.geeksforgeeks.org/dsa/program-average-array-iterative-recursive/" },
+          { title: "Multiply Each Element by 10", link: "https://www.geeksforgeeks.org/dsa/program-multiplication-array-elements/" },
+          { title: "Search for an Element (Linear Search)", link: "https://www.geeksforgeeks.org/problems/search-an-element-in-an-array-1587115621/1" },
+          { title: "Find the Maximum Element", link: "https://www.geeksforgeeks.org/problems/largest-element-in-array4009/1" },
+          { title: "Count Zeros and Ones", link: "https://www.geeksforgeeks.org/problems/segregate-0s-and-1s5106/1" }
+        ]
+      },
+
+      {
+        day: 2,
+        topic: "Two Pointers on Arrays",
+        problems: [
+          { title: "Reverse Array / String", link: "https://leetcode.com/problems/reverse-string/" },
+          { title: "Reverse Only Letters", link: "https://leetcode.com/problems/reverse-only-letters/" },
+          { title: "Reverse Vowels of a String", link: "https://leetcode.com/problems/reverse-vowels-of-a-string/" },
+          { title: "Check Palindrome (Number)", link: "https://leetcode.com/problems/palindrome-number/" },
+          { title: "Valid Palindrome", link: "https://leetcode.com/problems/valid-palindrome/" }
+        ]
+      },
+
+      {
+        day: 3,
+        topic: "Rotation & Index Mapping",
+        problems: [
+          { title: "Shift Array Elements by K", link: "https://www.geeksforgeeks.org/problems/rotate-array-clockwise/1" },
+          { title: "Rotate an Array", link: "https://leetcode.com/problems/rotate-array/" },
+          { title: "Print Extreme Elements Alternately", link: "https://www.geeksforgeeks.org/python/python-program-for-number-of-local-extrema-in-an-array/" },
+          { title: "Zigzag Conversion", link: "https://leetcode.com/problems/zigzag-conversion/" }
+        ]
+      },
+
+      {
+        day: 4,
+        topic: "Frequency / Hashing (Basics)",
+        problems: [
+          { title: "Find Unique Element", link: "https://leetcode.com/problems/single-number/" },
+          { title: "Find Mode of Array", link: "https://www.geeksforgeeks.org/mode/" },
+          { title: "Highest / Lowest Frequency", link: "https://www.geeksforgeeks.org/problems/difference-between-highest-and-lowest-occurrence4613/1" },
+          { title: "Valid Anagram", link: "https://leetcode.com/problems/valid-anagram/" }
+        ]
+      },
+
+      {
+        day: 5,
+        topic: "Frequency / Hashing (Advanced)",
+        problems: [
+          { title: "K Most Frequent Elements", link: "https://leetcode.com/problems/top-k-frequent-elements/" },
+          { title: "First Repeating Element", link: "https://www.geeksforgeeks.org/find-first-repeating-element-array-integers/" },
+          { title: "Missing Elements (Duplicates)", link: "https://leetcode.com/problems/find-all-numbers-disappeared-in-an-array/" },
+          { title: "Group Anagrams", link: "https://leetcode.com/problems/group-anagrams/" }
+        ]
+      },
+
+      {
+        day: 6,
+        topic: "Sliding Window on Arrays",
+        problems: [
+          { title: "Two Sum", link: "https://leetcode.com/problems/two-sum/" },
+          { title: "Three Sum", link: "https://leetcode.com/problems/3sum/" },
+          { title: "Remove Duplicates from Sorted Array", link: "https://leetcode.com/problems/remove-duplicates-from-sorted-array/" },
+          { title: "Maximum Average Subarray", link: "https://leetcode.com/problems/maximum-average-subarray-i/" }
+        ]
+      },
+
+      {
+        day: 7,
+        topic: "2D Arrays / Matrix Traversal",
+        problems: [
+          { title: "Sum of Each Row / Column", link: "https://www.geeksforgeeks.org/dsa/program-to-find-the-sum-of-each-row-and-each-column-of-a-matrix/" },
+          { title: "Transpose Matrix", link: "https://leetcode.com/problems/transpose-matrix/" },
+          { title: "Wave Print Matrix", link: "https://www.geeksforgeeks.org/problems/wave-array-1587115621/1" },
+          { title: "Spiral Matrix", link: "https://leetcode.com/problems/spiral-matrix/" }
+        ]
+      }
+    ]
+  },
+
+  /* ================= WEEK 2 : SORTING & SEARCHING ================= */
+  2: {
+    title: "Sorting & Searching",
+    days: [
+
+      {
+        day: 8,
+        topic: "Sorting Fundamentals",
+        problems: [
+          { title: "Bubble Sort", link: "https://www.geeksforgeeks.org/bubble-sort/" },
+          { title: "Selection Sort", link: "https://www.geeksforgeeks.org/selection-sort/" },
+          { title: "Insertion Sort", link: "https://www.geeksforgeeks.org/insertion-sort/" }
+        ]
+      },
+
+      {
+        day: 9,
+        topic: "Binary Search Core",
+        problems: [
+          { title: "Binary Search", link: "https://leetcode.com/problems/binary-search/" },
+          { title: "First & Last Occurrence", link: "https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/" },
+          { title: "Square Root", link: "https://leetcode.com/problems/sqrtx/" }
+        ]
+      },
+
+      {
+        day: 10,
+        topic: "Modified Binary Search",
+        problems: [
+          { title: "Peak Index in Mountain Array", link: "https://leetcode.com/problems/peak-index-in-a-mountain-array/" },
+          { title: "Search in 2D Matrix", link: "https://leetcode.com/problems/search-a-2d-matrix/" },
+          { title: "Pivot Index", link: "https://leetcode.com/problems/find-pivot-index/" }
+        ]
+      },
+
+      {
+        day: 11,
+        topic: "Tricky Binary Search",
+        problems: [
+          { title: "Divide Two Integers", link: "https://leetcode.com/problems/divide-two-integers/" },
+          { title: "Nearly Sorted Array", link: "https://www.geeksforgeeks.org/search-almost-sorted-array/" },
+          { title: "Single Non-Duplicate", link: "https://leetcode.com/problems/single-element-in-a-sorted-array/" }
+        ]
+      },
+
+      {
+        day: 12,
+        topic: "K & Distance Based",
+        problems: [
+          { title: "K-diff Pairs", link: "https://leetcode.com/problems/k-diff-pairs-in-an-array/" },
+          { title: "K Closest Elements", link: "https://leetcode.com/problems/find-k-closest-elements/" }
+        ]
+      },
+
+      {
+        day: 13,
+        topic: "Advanced Searching",
+        problems: [
+          { title: "Exponential Search", link: "https://www.geeksforgeeks.org/exponential-search/" },
+          { title: "Unbounded Search", link: "https://www.geeksforgeeks.org/find-position-element-sorted-array-infinite-numbers/" },
+          { title: "Row with Maximum 1s", link: "https://leetcode.com/problems/row-with-maximum-ones/" }
+        ]
+      },
+
+      {
+        day: 14,
+        topic: "Binary Search on Answer",
+        problems: [
+          { title: "Allocate Minimum Pages", link: "https://www.geeksforgeeks.org/allocate-minimum-number-pages/" },
+          { title: "Painter’s Partition", link: "https://www.geeksforgeeks.org/painters-partition-problem/" },
+          { title: "Aggressive Cows", link: "https://www.spoj.com/problems/AGGRCOW/" },
+          { title: "EKO", link: "https://www.spoj.com/problems/EKO/" },
+          { title: "Roti Prata", link: "https://www.spoj.com/problems/PRATA/" }
+        ]
+      }
+    ]
+  },
+
+  /* ================= WEEK 3 : STRINGS ================= */
+  3: {
+    title: "Strings",
+    days: [
+
+      {
+        day: 15,
+        topic: "String Basics",
+        problems: [
+          { title: "To Uppercase", link: "https://leetcode.com/problems/to-upper-case/" },
+          { title: "To Lowercase", link: "https://leetcode.com/problems/to-lower-case/" },
+          { title: "Replace Character", link: "https://www.geeksforgeeks.org/replace-all-occurrences-of-a-character-in-a-string/" }
+        ]
+      },
+
+      {
+        day: 16,
+        topic: "Mapping / Pattern Matching",
+        problems: [
+          { title: "Isomorphic Strings", link: "https://leetcode.com/problems/isomorphic-strings/" },
+          { title: "Find & Replace Pattern", link: "https://leetcode.com/problems/find-and-replace-pattern/" },
+          { title: "Magic Dictionary", link: "https://leetcode.com/problems/implement-magic-dictionary/" }
+        ]
+      },
+
+      {
+        day: 17,
+        topic: "Prefix & Index Based",
+        problems: [
+          { title: "Longest Common Prefix", link: "https://leetcode.com/problems/longest-common-prefix/" },
+          { title: "First Occurrence in String", link: "https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string/" },
+          { title: "Atoi", link: "https://leetcode.com/problems/string-to-integer-atoi/" }
+        ]
+      },
+
+      {
+        day: 18,
+        topic: "String Construction",
+        problems: [
+          { title: "String Compression", link: "https://leetcode.com/problems/string-compression/" },
+          { title: "Add Strings", link: "https://leetcode.com/problems/add-strings/" },
+          { title: "Integer to Roman", link: "https://leetcode.com/problems/integer-to-roman/" }
+        ]
+      },
+
+      {
+        day: 19,
+        topic: "Sliding Window & Rearrangement",
+        problems: [
+          { title: "Longest Palindromic Substring", link: "https://leetcode.com/problems/longest-palindromic-substring/" },
+          { title: "Reorganize String", link: "https://leetcode.com/problems/reorganize-string/" },
+          { title: "Remove Adjacent Duplicates II", link: "https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string-ii/" }
+        ]
+      },
+
+      {
+        day: 20,
+        topic: "Simulation & Logic",
+        problems: [
+          { title: "Remove Substring", link: "https://leetcode.com/problems/remove-all-occurrences-of-a-substring/" },
+          { title: "Decode Message", link: "https://leetcode.com/problems/decode-the-message/" },
+          { title: "Laser Beams", link: "https://leetcode.com/problems/number-of-laser-beams-in-a-bank/" },
+          { title: "Garbage Collection", link: "https://leetcode.com/problems/garbage-collection/" }
+        ]
+      },
+
+      {
+        day: 21,
+        topic: "Hard / Comparator",
+        problems: [
+          { title: "Largest Number", link: "https://leetcode.com/problems/largest-number/" },
+          { title: "Custom Comparator", link: "https://www.geeksforgeeks.org/cpp/comparator-in-cpp/" },
+          { title: "Rotate Image", link: "https://leetcode.com/problems/rotate-image/" },
+          { title: "Factorial (Large)", link: "https://www.geeksforgeeks.org/factorial-large-number/" }
+        ]
+      }
+    ]
+  }
+
+};
+
+    
+    let completedProblems = JSON.parse(localStorage.getItem('dsaTrackerProgress')) || {};
+        let activeWeek = 1;
+        
+        // Calculate total problems
+        const getTotalProblems = () => {
+            let count = 0;
+            Object.values(roadmapData).forEach(week => {
+                week.days.forEach(day => count += day.problems.length);
+            });
+            return count;
+        };
+        const TOTAL_PROBLEMS = getTotalProblems();
+
+        function init() {
+            renderWeek(1);
+            updateGlobalProgress();
+        }
+
+        function toggleAccordion(day) {
+            const content = document.getElementById(`content-${day}`);
+            const icon = document.getElementById(`icon-${day}`);
+            
+            if (content.classList.contains('open')) {
+                content.classList.remove('open');
+                icon.style.transform = 'rotate(0deg)';
+            } else {
+                content.classList.add('open');
+                icon.style.transform = 'rotate(180deg)';
+            }
+        }
+
+        function toggleProblem(day, problemIndex) {
+            const key = `day-${day}-prob-${problemIndex}`;
+            if (completedProblems[key]) {
+                delete completedProblems[key];
+            } else {
+                completedProblems[key] = true;
+            }
+            localStorage.setItem('dsaTrackerProgress', JSON.stringify(completedProblems));
+            
+            // Update UI
+            updateDayProgress(day);
+            updateGlobalProgress();
+        }
+
+        function updateDayProgress(day) {
+            // Find current week data to calculate day progress
+            const weekData = roadmapData[activeWeek];
+            const dayData = weekData.days.find(d => d.day === day);
+            
+            let solved = 0;
+            dayData.problems.forEach((_, idx) => {
+                if (completedProblems[`day-${day}-prob-${idx}`]) solved++;
+            });
+            
+            const percent = (solved / dayData.problems.length) * 100;
+            document.getElementById(`progress-bar-${day}`).style.width = `${percent}%`;
+            document.getElementById(`count-${day}`).innerText = `${solved}/${dayData.problems.length}`;
+            
+            // Visual feedback on card
+            const card = document.getElementById(`card-${day}`);
+            if(solved === dayData.problems.length) {
+                card.classList.add('border-green-400', 'bg-green-50');
+                card.classList.remove('border-slate-200', 'bg-white');
+            } else {
+                card.classList.remove('border-green-400', 'bg-green-50');
+                card.classList.add('border-slate-200', 'bg-white');
+            }
+        }
+
+        function updateGlobalProgress() {
+            const solvedCount = Object.keys(completedProblems).length;
+            const percent = Math.round((solvedCount / TOTAL_PROBLEMS) * 100);
+            
+            document.getElementById('overall-bar').style.width = `${percent}%`;
+            document.getElementById('overall-percentage').innerText = `${percent}%`;
+            document.getElementById('solved-count').innerText = solvedCount;
+            document.getElementById('total-count').innerText = TOTAL_PROBLEMS;
+        }
+
+        function markDayComplete(day) {
+            const weekData = roadmapData[activeWeek];
+            const dayData = weekData.days.find(d => d.day === day);
+            
+            dayData.problems.forEach((_, idx) => {
+                completedProblems[`day-${day}-prob-${idx}`] = true;
+            });
+            
+            // Force redraw of checkbox states
+            const checkboxes = document.querySelectorAll(`.day-${day}-checkbox`);
+            checkboxes.forEach(cb => cb.checked = true);
+            
+            localStorage.setItem('dsaTrackerProgress', JSON.stringify(completedProblems));
+            updateDayProgress(day);
+            updateGlobalProgress();
+        }
+
+        function renderWeek(weekNum) {
+            activeWeek = weekNum;
+            const container = document.getElementById('roadmap-container');
+            container.innerHTML = ''; // Clear current
+
+            // Update Tabs
+            [1, 2, 3].forEach(n => {
+                const btn = document.getElementById(`tab-${n}`);
+                if (n === weekNum) {
+                    btn.className = "px-6 py-2 rounded-lg text-sm font-semibold transition-all duration-200 text-white bg-brand-600 shadow-md transform scale-105";
+                } else {
+                    btn.className = "px-6 py-2 rounded-lg text-sm font-semibold transition-all duration-200 text-slate-500 hover:text-slate-900 hover:bg-slate-50";
+                }
+            });
+
+            // Render Days
+            const data = roadmapData[weekNum];
+            
+            data.days.forEach(dayObj => {
+                // Calculate initial state
+                let solved = 0;
+                dayObj.problems.forEach((_, idx) => {
+                    if (completedProblems[`day-${dayObj.day}-prob-${idx}`]) solved++;
+                });
+                const percent = (solved / dayObj.problems.length) * 100;
+                const isFull = solved === dayObj.problems.length;
+
+                const html = `
+                <div id="card-${dayObj.day}" class="bg-white border ${isFull ? 'border-green-400 bg-green-50' : 'border-slate-200'} rounded-xl shadow-sm transition-all hover:shadow-md overflow-hidden group">
+                    <div class="p-4 cursor-pointer" onclick="toggleAccordion(${dayObj.day})">
+                        <div class="flex justify-between items-center mb-3">
+                            <h3 class="font-heading font-semibold text-slate-900 flex items-center gap-2">
+                                <span class="bg-white border border-slate-100 text-slate-600 text-xs font-bold px-2.5 py-1 rounded shadow-sm">Day ${dayObj.day}</span>
+                                ${dayObj.topic}
+                            </h3>
+                            <i id="icon-${dayObj.day}" class="fa-solid fa-chevron-down text-slate-400 group-hover:text-brand-500 transition-all duration-300"></i>
+                        </div>
+                        
+                        <div class="flex items-center gap-4">
+                            <div class="flex-grow bg-slate-100 h-1.5 rounded-full overflow-hidden">
+                                <div id="progress-bar-${dayObj.day}" class="bg-brand-500 h-full transition-all duration-500 rounded-full" style="width: ${percent}%"></div>
+                            </div>
+                            <span id="count-${dayObj.day}" class="text-xs font-mono font-medium text-slate-500">${solved}/${dayObj.problems.length}</span>
+                        </div>
+                    </div>
+
+                    <div id="content-${dayObj.day}" class="accordion-content bg-slate-50/50 border-t border-slate-100">
+                        <div class="p-4 space-y-3">
+                            ${dayObj.problems.map((prob, idx) => `
+                                <div class="flex items-start gap-3 group/item hover:bg-white p-2 rounded-lg transition-colors">
+                                    <label class="custom-checkbox relative flex items-center p-0.5 rounded-full cursor-pointer mt-0.5">
+                                        <input type="checkbox" 
+                                            class="day-${dayObj.day}-checkbox sr-only"
+                                            ${completedProblems[`day-${dayObj.day}-prob-${idx}`] ? 'checked' : ''} 
+                                            onchange="toggleProblem(${dayObj.day}, ${idx})">
+                                        <div class="w-5 h-5 border-2 border-slate-300 rounded bg-white flex items-center justify-center transition-all">
+                                            <i class="fa-solid fa-check text-white text-[10px] opacity-0 transition-opacity"></i>
+                                        </div>
+                                    </label>
+                                    <a href="${prob.link}" target="_blank" class="text-sm text-slate-600 hover:text-brand-600 font-medium flex-grow pt-0.5 transition-colors">
+                                        ${prob.title} <i class="fa-solid fa-arrow-up-right-from-square text-[10px] ml-1 opacity-0 group-hover/item:opacity-50 transition-opacity"></i>
+                                    </a>
+                                </div>
+                            `).join('')}
+                            
+                            <div class="pt-2 flex justify-end">
+                                <button onclick="markDayComplete(${dayObj.day})" class="text-xs font-bold uppercase tracking-wider text-brand-600 hover:bg-brand-50 px-3 py-1.5 rounded-lg transition-colors">
+                                    Mark All Complete
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                `;
+                container.insertAdjacentHTML('beforeend', html);
+            });
+        }
+
+        function resetProgress() {
+            if(confirm("Are you sure you want to reset all progress? This cannot be undone.")) {
+                localStorage.removeItem('dsaTrackerProgress');
+                location.reload();
+            }
+        }
+
+        // Initialize
+        init();
+
+    </script>
+</body>
+</html>
