@@ -1,71 +1,94 @@
-🧠 TCS TagTest DSA Practice Tracker
+🧠 TCS TAGTEST DSA PRACTICE TRACKER
 
-A beautiful and interactive TCS NQT / TCS TagTest DSA Preparation Sheet built using HTML, TailwindCSS, and JavaScript.
-This sheet helps students practice coding topics in a structured 21-Day Roadmap with progress tracking.
+A 21-Day Structured DSA Practice Sheet designed specially for TCS NQT & TCS TagTest aspirants.
+Built with HTML + Tailwind CSS + JavaScript, this tracker helps you stay consistent and prepare effectively.
 
-🚀 Features
+🚀 FEATURES
 
-✅ Well-structured 3-Week DSA Roadmap
+✅ 3-Week Structured Roadmap
 
-📚 Topic-wise curated problem list
+📚 Topic Wise Well-Chosen Problems
 
-📌 Direct problem links (LeetCode + GFG + SPOJ)
+🔗 Direct Problem Links (LeetCode / GFG / SPOJ)
 
-⏳ Local Progress Tracking (Saved in Browser)
+🎯 Progress Percentage & Visual Progress Bar
 
-🎯 Progress Bar + Percentage Tracker
+💾 Auto Progress Save (Local Storage)
 
 📅 Week Tabs (Week 1 → Week 3)
 
-🔥 Smooth UI + Animations
+✨ Smooth UI + Modern Animations
 
-🎨 Modern Glassmorphism & Tailwind Design
+🎨 Clean & Beautiful Tailwind UI
 
-🗂️ Roadmap Structure
-📍 Week 1 — Arrays & Two Pointers
+🗂️ ROADMAP OVERVIEW
+📍 WEEK 1 — ARRAYS & TWO POINTERS
 
-Covers: Traversal, Hashing, Sliding Window, 2D Arrays
+Covers:
 
-📍 Week 2 — Sorting & Searching
+Array Traversal
 
-Covers: Sorting Algorithms, Binary Search, BS Variations, BS on Answer
+Frequency / Hashing
 
-📍 Week 3 — Strings
+Sliding Window
 
-Covers: Basic Strings, Patterns, Sliding Window, Advanced Logic
+2D Matrix Problems
 
-🖥️ How to Use
-Option 1 — Open Locally
+📍 WEEK 2 — SORTING & SEARCHING
+
+Covers:
+
+Sorting Algorithms
+
+Binary Search Core
+
+Binary Search Variations
+
+Binary Search on Answer Problems
+
+📍 WEEK 3 — STRINGS
+
+Covers:
+
+String Basics
+
+Pattern Problems
+
+Sliding Window on Strings
+
+Logical & Advanced String Problems
+
+🖥️ HOW TO USE
+✔️ RUN LOCALLY
 
 1️⃣ Download / Clone the repository
-2️⃣ Open index.html in your browser
-3️⃣ Start solving 🚀
+2️⃣ Open index.html
+3️⃣ Start practicing 🚀
 
-Option 2 — Host on GitHub Pages
+🌍 OPTIONAL — HOST ON GITHUB PAGES
 
-1️⃣ Go to Repository Settings
-2️⃣ Open Pages
-3️⃣ Select:
+1️⃣ Go to Repository → Settings
+2️⃣ Select Pages
+3️⃣ Set:
 
 Source → Deploy from Branch
 Branch → main
 Folder → /root
 
 
-4️⃣ Save and access your live site 🎉
+4️⃣ Save → Your DSA Tracker goes LIVE 🎉
 
-💾 Progress Storage
+💾 PROGRESS STORAGE
 
-Your solved problem progress is stored automatically using:
+Your progress is automatically stored using:
 
 localStorage
 
 
-So even if you refresh, your progress stays saved 👍
+So your solved questions remain saved even after refreshing.
+You can reset anytime using Reset Progress.
 
-You can reset anytime using the Reset Progress button.
-
-🛠️ Tech Stack
+🛠️ TECH STACK
 
 HTML
 
@@ -75,15 +98,16 @@ JavaScript
 
 FontAwesome Icons
 
-❤️ Created By
+❤️ CREATED BY
 
-Gonga Akshay
+GONGA AKSHAY
+
 Built for students preparing for:
 
-TCS TagTest
+TCS TAGTEST
 
 TCS NQT
 
-Service-Based Companies
+Service-Based Company Coding Rounds
 
-If you like this project, ⭐ star the repo and share with friends 😊
+⭐ If you find this useful, don’t forget to STAR the repo!
