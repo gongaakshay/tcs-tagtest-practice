@@ -63,10 +63,10 @@ Built using **HTML, Tailwind CSS, and JavaScript**, this tracker helps you stay 
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-username/tcs-dsa-tracker.git
+git clone https://github.com/gongaakshay/tcs-tagtest-practice.git
 
 # Open folder
-cd tcs-dsa-tracker
+cd tcs-tagtest-practice
 
 # Run
 Open index.html in your browser
